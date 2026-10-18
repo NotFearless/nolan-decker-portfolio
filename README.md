@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nolan Decker — Videographer & Content Creator Portfolio
 
-## Getting Started
+A high-performance, modern portfolio website built for **Nolan Decker**, sports videographer and digital content creator. Engineered with Next.js 14, TypeScript, and Tailwind CSS with an off-white aesthetic.
 
-First, run the development server:
+## 🎬 Project Highlights
+
+- **Aesthetic**: Off-white museum/editorial canvas (`#FAF8F5`) with camera viewfinder HUD accents and crisp typography.
+- **Embedded Real Work**:
+  - Full-length 16:9 documentary: *Road to the Olympics - EP.1* (Goon Squad Decathlon docuseries)
+  - 9 Vertical 9:16 high-speed shorts (Pole Vault, High Jump, Hurdles, Slow-Mo)
+  - Interactive Theater Mode Modal with YouTube iframe embeds and keyboard shortcuts (`Esc` to close).
+- **Curated Resume Record**:
+  - **Videographer & Social Media Content Creator** — *Goons Squad — Professional Combined Event Track & Field Team* (2026 – Present, Collab with Olympian Chris Huffins)
+  - **Independent Content Creator** — *Multi-Niche Video Creator (TikTok & YouTube)* (May 2023 – Present)
+- **Multi-Platform Social Hub**:
+  - YouTube: [@GoonSquadElites](https://www.youtube.com/@GoonSquadElites)
+  - TikTok: [@gselites](https://www.tiktok.com/@gselites)
+  - Instagram: [@pitchingwithw1tt](https://www.instagram.com/pitchingwithw1tt/)
+- **Gear & Software Toolkit**:
+  - Adobe Premiere Pro, After Effects, Photoshop, Lightroom, CapCut Pro
+  - 4K 120fps high-speed tracking, dynamic gimbal rigging, athletic sound FX design
+- **Interactive Production Rate & Shoot Configurator**:
+  - Clients can select project type, format (9:16 / 16:9), and turnaround to generate a production brief.
+  - One-click direct email generator and brief copy with celebratory confetti.
+
+---
+
+## 🚀 How to Push to GitHub & Deploy to Vercel
+
+### 1. Push to GitHub
+
+Create a new repository on your GitHub account (e.g., `nolan-decker-portfolio`), then run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd /Users/nolan/Downloads/nolan-decker-portfolio
+
+# If you haven't set your remote yet:
+git remote add origin https://github.com/<your-username>/nolan-decker-portfolio.git
+
+# Push main branch:
+git branch -M main
+git push -u origin main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Deploy to Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
+2. Select your `nolan-decker-portfolio` GitHub repository.
+3. Vercel automatically detects Next.js.
+4. Click **Deploy**. Your site will be live on a fast global edge network in seconds!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Local Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Start dev server
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Production build
+npm run build
+```
