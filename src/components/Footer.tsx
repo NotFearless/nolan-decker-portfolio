@@ -26,11 +26,11 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-[#9C978E] font-light leading-relaxed max-w-sm">
-              Sports videographer, trackside cinematographer, and retention-focused content creator. Capturing elite human movement and producing platform-native video content.
+              Sports videographer dedicated to capturing athletic performance, game day energy, and athlete journeys across all sports.
             </p>
 
-            <div className="flex items-center space-x-3 pt-1 text-xs font-mono text-[#D4A359]">
-              <span>Official Media: Goon Squad Track & Field</span>
+            <div className="pt-1 text-xs font-mono text-[#D4A359]">
+              <span>Official Videographer: Goon Squad Combined Event Track & Field</span>
             </div>
           </div>
 
@@ -46,8 +46,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About Nolan
+                <a href="#clients" className="hover:text-white transition-colors">
+                  Client Channels
                 </a>
               </li>
               <li>
@@ -56,8 +56,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#socials" className="hover:text-white transition-colors">
-                  Social Channels
+                <a href="#about" className="hover:text-white transition-colors">
+                  About Nolan
                 </a>
               </li>
               <li>
@@ -67,13 +67,13 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#inquiry" className="hover:text-white transition-colors">
-                  Rate Calculator
+                  Book a Shoot
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Direct Contact & Socials */}
+          {/* Direct Contact & Client Channels */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#8B877E] font-semibold">
               Direct Contact
@@ -98,34 +98,39 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="pt-3 flex items-center space-x-3">
-              <a
-                href={PERSONAL_INFO.socials.youtube.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-[#EE3B2B] hover:border-[#EE3B2B] transition-colors p-2"
-                title="Goon Squad Elites on YouTube"
-              >
-                <YouTubeIcon className="w-full h-full" />
-              </a>
-              <a
-                href={PERSONAL_INFO.socials.tiktok.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-black hover:border-white transition-colors p-2"
-                title="Goon Squad Elites on TikTok"
-              >
-                <TikTokIcon className="w-full h-full" />
-              </a>
-              <a
-                href={PERSONAL_INFO.socials.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-gradient-to-tr hover:from-amber-500 hover:to-rose-500 hover:border-transparent transition-all p-2"
-                title="Pitching with Witt on Instagram"
-              >
-                <InstagramIcon className="w-full h-full" />
-              </a>
+            <div className="pt-3 space-y-1.5">
+              <span className="text-[10px] font-mono uppercase text-[#8B877E] block">
+                Featured Client Channels:
+              </span>
+              <div className="flex items-center space-x-3">
+                <a
+                  href={PERSONAL_INFO.clients[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-[#EE3B2B] hover:border-[#EE3B2B] transition-colors p-2"
+                  title="Client: Goon Squad Elites on YouTube"
+                >
+                  <YouTubeIcon className="w-full h-full" />
+                </a>
+                <a
+                  href={PERSONAL_INFO.clients[1].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-black hover:border-white transition-colors p-2"
+                  title="Client: Goon Squad Elites on TikTok"
+                >
+                  <TikTokIcon className="w-full h-full" />
+                </a>
+                <a
+                  href={PERSONAL_INFO.clients[2].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-[#1C1B19] border border-[#2E2C28] flex items-center justify-center text-[#FAF8F5] hover:bg-gradient-to-tr hover:from-amber-500 hover:to-rose-500 hover:border-transparent transition-all p-2"
+                  title="Client: Pitching with Witt on Instagram"
+                >
+                  <InstagramIcon className="w-full h-full" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -133,7 +138,7 @@ export default function Footer() {
         {/* Bottom Credits & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8B877E] gap-4">
           <div>
-            &copy; {new Date().getFullYear()} Nolan Decker. All rights reserved.
+            &copy; {new Date().getFullYear()} Nolan Decker &bull; Sports Videographer. All rights reserved.
           </div>
 
           <div className="flex items-center space-x-6">

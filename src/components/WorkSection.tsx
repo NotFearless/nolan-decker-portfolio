@@ -32,10 +32,10 @@ export default function WorkSection({ onSelectVideo }: WorkSectionProps) {
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#121211] tracking-tight">
-              Selected Works & Edits
+              Selected Sports Videography
             </h2>
             <p className="text-[#6B6760] text-sm sm:text-base max-w-xl font-light">
-              High-velocity sports media filmed trackside for Goon Squad combined-event athletes, plus retention-focused short-form edits.
+              High-velocity sports media filmed for teams and athletes—including docuseries episodes, 120fps high-speed tracking, and highlight edits.
             </p>
           </div>
 
@@ -108,7 +108,7 @@ export default function WorkSection({ onSelectVideo }: WorkSectionProps) {
                   {/* Top Overlay Badges */}
                   <div className="absolute top-3 inset-x-3 flex justify-between items-center text-[10px] font-mono text-white/90 z-20">
                     <span className="px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10 uppercase tracking-wider text-[#D4A359]">
-                      {video.aspect}
+                      Client: {video.client}
                     </span>
                     <span className="px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10">
                       {video.duration}
@@ -159,7 +159,7 @@ export default function WorkSection({ onSelectVideo }: WorkSectionProps) {
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#121211] hover:text-[#EE3B2B] transition-colors"
                       >
                         <Play className="w-3.5 h-3.5 fill-current" />
-                        <span>Watch Embedded</span>
+                        <span>Watch Video</span>
                       </button>
 
                       <a
@@ -191,13 +191,13 @@ export default function WorkSection({ onSelectVideo }: WorkSectionProps) {
             </div>
             <div>
               <span className="text-xs font-mono uppercase text-[#D4A359] tracking-wider font-semibold">
-                Official YouTube Hub
+                Client Production Spotlight
               </span>
               <h4 className="text-lg font-serif font-bold text-[#121211]">
-                Goon Squad Elites Channel
+                Goon Squad Elites — Full Docuseries & Highlights
               </h4>
               <p className="text-xs text-[#6B6760] font-light">
-                Follow all docuseries episodes, athlete vlogs, and meet highlights.
+                Follow the team&apos;s official channel for full episodes, athlete vlogs, and trackside meet coverage filmed by Nolan.
               </p>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function WorkSection({ onSelectVideo }: WorkSectionProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#121211] hover:bg-[#2B2926] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
           >
-            <span>Visit @GoonSquadElites</span>
+            <span>Visit Client Channel</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>

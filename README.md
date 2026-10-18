@@ -1,62 +1,33 @@
-# Nolan Decker — Videographer & Content Creator Portfolio
+# Nolan Decker — Sports Videographer Portfolio
 
-A high-performance, modern portfolio website built for **Nolan Decker**, sports videographer and digital content creator. Engineered with Next.js 14, TypeScript, and Tailwind CSS with an off-white aesthetic.
+A modern, high-performance portfolio website built for **Nolan Decker**, Sports Videographer based in Texas. Engineered with Next.js 14, TypeScript, and Tailwind CSS with an off-white aesthetic.
 
-## 🎬 Project Highlights
+## 🎬 Project Overview
 
-- **Aesthetic**: Off-white museum/editorial canvas (`#FAF8F5`) with camera viewfinder HUD accents and crisp typography.
-- **Embedded Real Work**:
-  - Full-length 16:9 documentary: *Road to the Olympics - EP.1* (Goon Squad Decathlon docuseries)
-  - 9 Vertical 9:16 high-speed shorts (Pole Vault, High Jump, Hurdles, Slow-Mo)
+- **Focus**: High-speed, high-performance **Sports Videography** across all athletic disciplines (track & field, baseball, speed & conditioning, game day action, recruitment reels, and training camp documentation).
+- **Aesthetic**: Warm off-white editorial canvas (`#FAF8F5`) with camera viewfinder HUD accents and crisp typography.
+- **Featured Client Productions**:
+  - **Goon Squad Elites (YouTube)**: *Road to the Olympics - EP.1* (4K 16:9 Decathlon Docuseries)
+  - **Goon Squad Elites (TikTok)**: 9 Vertical 9:16 high-speed athletic shorts (Pole Vault, High Jump, Hurdles, Slow-Mo)
+  - **Pitching With Witt (Instagram)**: Baseball pitching mechanics and athletic training reels
   - Interactive Theater Mode Modal with YouTube iframe embeds and keyboard shortcuts (`Esc` to close).
 - **Curated Resume Record**:
   - **Videographer & Social Media Content Creator** — *Goons Squad — Professional Combined Event Track & Field Team* (2026 – Present, Collab with Olympian Chris Huffins)
-  - **Independent Content Creator** — *Multi-Niche Video Creator (TikTok & YouTube)* (May 2023 – Present)
-- **Multi-Platform Social Hub**:
-  - YouTube: [@GoonSquadElites](https://www.youtube.com/@GoonSquadElites)
-  - TikTok: [@gselites](https://www.tiktok.com/@gselites)
-  - Instagram: [@pitchingwithw1tt](https://www.instagram.com/pitchingwithw1tt/)
-- **Gear & Software Toolkit**:
-  - Adobe Premiere Pro, After Effects, Photoshop, Lightroom, CapCut Pro
-  - 4K 120fps high-speed tracking, dynamic gimbal rigging, athletic sound FX design
-- **Interactive Production Rate & Shoot Configurator**:
-  - Clients can select project type, format (9:16 / 16:9), and turnaround to generate a production brief.
-  - One-click direct email generator and brief copy with celebratory confetti.
+  - **Independent Content Creator** — *Sports & Video Creator* (May 2023 – Present)
+- **Gear & Capabilities**:
+  - 4K 120fps high-speed capture, dynamic gimbal action tracking, impact sound design, Premiere Pro, After Effects, Photoshop, Lightroom, and CapCut.
+- **Interactive Shoot Configurator**:
+  - Configurable parameters for game day coverage, athlete recruitment reels, team season media, and facility showcases.
+  - Direct 1-click email brief generator with confetti feedback.
 
 ---
 
-## 🚀 How to Push to GitHub & Deploy to Vercel
+## 🚀 Live Repository
 
-### 1. Push to GitHub
+- **GitHub Repository**: [https://github.com/NotFearless/nolan-decker-portfolio](https://github.com/NotFearless/nolan-decker-portfolio)
 
-Create a new repository on your GitHub account (e.g., `nolan-decker-portfolio`), then run:
+### Deploying to Vercel
 
-```bash
-cd /Users/nolan/Downloads/nolan-decker-portfolio
-
-# If you haven't set your remote yet:
-git remote add origin https://github.com/<your-username>/nolan-decker-portfolio.git
-
-# Push main branch:
-git branch -M main
-git push -u origin main
-```
-
-### 2. Deploy to Vercel
-
-1. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-2. Select your `nolan-decker-portfolio` GitHub repository.
-3. Vercel automatically detects Next.js.
-4. Click **Deploy**. Your site will be live on a fast global edge network in seconds!
-
----
-
-## 🛠️ Local Development
-
-```bash
-# Start dev server
-npm run dev
-
-# Production build
-npm run build
-```
+1. Go to [vercel.com/new](https://vercel.com/new).
+2. Import `NotFearless/nolan-decker-portfolio`.
+3. Click **Deploy**. Vercel will build and deploy the Next.js app in seconds.

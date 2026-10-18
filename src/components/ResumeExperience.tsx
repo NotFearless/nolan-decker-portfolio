@@ -13,14 +13,14 @@ export default function ResumeExperience() {
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#121211]"></span>
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#6B6760] font-semibold">
-              Professional Record
+              Professional Experience
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#121211] tracking-tight">
-            Work Experience & Background
+            Sports Videography Background
           </h2>
           <p className="text-[#6B6760] text-sm sm:text-base font-light max-w-2xl">
-            Selected professional roles focusing on sports videography, Olympic-tier athlete collaboration, and viral short-form retention content.
+            Selected professional roles capturing elite athletic motion, collaborating trackside with Olympic coaching staff, and editing dynamic sports media.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ResumeExperience() {
               {/* Skills Tags */}
               <div className="pt-6 border-t border-[#EAE7DF] flex flex-wrap items-center gap-2">
                 <span className="text-[11px] font-mono text-[#8B877E] mr-1">
-                  Key Competencies:
+                  Key Skills:
                 </span>
                 {exp.skills.map((skill, sIdx) => (
                   <span

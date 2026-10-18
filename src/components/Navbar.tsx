@@ -82,7 +82,7 @@ export default function Navbar() {
                 Nolan Decker
               </span>
               <span className="text-[10px] font-mono uppercase tracking-wider text-[#6B6760] mt-0.5">
-                Sports Videographer & Creator
+                Sports Videographer
               </span>
             </div>
           </a>
@@ -92,20 +92,20 @@ export default function Navbar() {
             <a href="#work" className="hover:text-[#121211] transition-colors py-1">
               Selected Work
             </a>
-            <a href="#about" className="hover:text-[#121211] transition-colors py-1">
-              About
+            <a href="#clients" className="hover:text-[#121211] transition-colors py-1">
+              Client Channels
             </a>
             <a href="#experience" className="hover:text-[#121211] transition-colors py-1">
               Experience
             </a>
-            <a href="#socials" className="hover:text-[#121211] transition-colors py-1">
-              Social Channels
+            <a href="#about" className="hover:text-[#121211] transition-colors py-1">
+              About
             </a>
             <a href="#toolkit" className="hover:text-[#121211] transition-colors py-1">
               Gear & Software
             </a>
             <a href="#inquiry" className="hover:text-[#121211] transition-colors py-1">
-              Rate Calculator
+              Book Shoot
             </a>
           </nav>
 
@@ -162,11 +162,11 @@ export default function Navbar() {
                 Selected Work
               </a>
               <a
-                href="#about"
+                href="#clients"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
               >
-                About Nolan
+                Client Channels & Work
               </a>
               <a
                 href="#experience"
@@ -176,11 +176,11 @@ export default function Navbar() {
                 Experience (Goon Squad)
               </a>
               <a
-                href="#socials"
+                href="#about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
               >
-                Social Channels
+                About Nolan
               </a>
               <a
                 href="#toolkit"
@@ -194,7 +194,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
               >
-                Rate Calculator & Booking
+                Book a Shoot
               </a>
             </div>
 

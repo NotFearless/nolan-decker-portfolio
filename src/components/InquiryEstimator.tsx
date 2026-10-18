@@ -6,47 +6,49 @@ import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export default function InquiryEstimator() {
-  const [projectType, setProjectType] = useState<string>('meet-coverage');
+  const [projectType, setProjectType] = useState<string>('game-coverage');
   const [format, setFormat] = useState<string>('hybrid');
   const [turnaround, setTurnaround] = useState<string>('priority');
+  const [sport, setSport] = useState<string>('Track & Field / Baseball / Multi-Sport');
   const [location, setLocation] = useState<string>('DFW, Texas');
   const [clientName, setClientName] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
 
   const projectTypes = [
-    { id: 'meet-coverage', name: 'Track Meet / Competition Coverage', desc: 'On-field multi-event filming, 120fps slow-motion highlights' },
-    { id: 'athlete-reel', name: 'Athlete Showcase & Recruitment Reel', desc: 'High-impact personal highlight reel for scouts and sponsors' },
-    { id: 'social-retainer', name: 'Monthly Content Retainer', desc: 'Regular training sessions, weekly short-form drops for TikTok & IG' },
-    { id: 'commercial', name: 'Commercial & Brand Campaign', desc: 'Narrative storytelling, brand product integration, high-production' },
+    { id: 'game-coverage', name: 'Game Day / Meet / Event Coverage', desc: 'On-field live action capture, 120fps slow-motion highlights' },
+    { id: 'athlete-reel', name: 'Athlete Highlight & Recruitment Reel', desc: 'High-impact personal highlight reel for scouts, coaches & social' },
+    { id: 'team-season', name: 'Team Season & Training Camp Media', desc: 'Practices, scrimmages, behind-the-scenes vlogs & team hype videos' },
+    { id: 'facility-brand', name: 'Sports Facility & Athletic Brand Media', desc: 'Training facility showcases, trainer breakdowns & commercial promos' },
   ];
 
   const formats = [
-    { id: 'vertical', name: '9:16 Vertical Reels', desc: 'Engineered for TikTok, Reels & YouTube Shorts' },
-    { id: 'cinema', name: '16:9 Cinematic 4K', desc: 'Docuseries, YouTube feature, landscape' },
-    { id: 'hybrid', name: 'Hybrid Package (Both)', desc: 'Full length YouTube edit + cutdown vertical reels' },
+    { id: 'vertical', name: '9:16 Vertical Reels', desc: 'Engineered for Instagram Reels, TikTok & Shorts' },
+    { id: 'cinema', name: '16:9 4K Cinema Master', desc: 'Docuseries, team YouTube channel, landscape' },
+    { id: 'hybrid', name: 'Hybrid Package (Both)', desc: 'Full length cinematic edit + cutdown vertical reels' },
   ];
 
   const turnarounds = [
-    { id: 'same-day', name: 'Same-Day Flash (< 24h)', desc: 'Immediate viral drop while meet is still trending' },
+    { id: 'same-day', name: 'Same-Day Flash (< 24h)', desc: 'Immediate drop while the game or meet is trending' },
     { id: 'priority', name: 'Priority (48 – 72 Hours)', desc: 'Fast turnaround with sound design & color grade' },
-    { id: 'standard', name: 'Standard (5 – 7 Days)', desc: 'Full deep-dive editing and multi-round revisions' },
+    { id: 'standard', name: 'Standard (5 – 7 Days)', desc: 'Full deep-dive editing and sound design' },
   ];
 
   const selectedProject = projectTypes.find((p) => p.id === projectType)?.name;
   const selectedFormat = formats.find((f) => f.id === format)?.name;
   const selectedTurnaround = turnarounds.find((t) => t.id === turnaround)?.name;
 
-  const generatedEmailSubject = `Videography Inquiry: ${selectedProject} (${clientName || 'New Client'})`;
+  const generatedEmailSubject = `Sports Videography Booking: ${selectedProject} (${clientName || 'New Client'})`;
   const generatedEmailBody = `Hi Nolan,
 
-I would like to inquire about booking your videography and content creation services.
+I would like to inquire about booking your sports videography services.
 
 Project Scope:
 - Project Type: ${selectedProject}
+- Sport / Athletic Discipline: ${sport || 'Sports'}
 - Deliverable Format: ${selectedFormat}
 - Desired Turnaround: ${selectedTurnaround}
-- Location / Meet: ${location || 'DFW, Texas'}
+- Location / Venue: ${location || 'DFW, Texas'}
 
 Additional Notes:
 ${notes || 'We would love to discuss dates and get your availability for an upcoming shoot.'}
@@ -86,14 +88,14 @@ ${clientName || 'Prospective Client'}`;
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-[#121211]"></span>
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#6B6760] font-semibold">
-              Interactive Project Builder
+              Shoot Configurator
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#121211] tracking-tight">
-            Configure Your Production
+            Book a Sports Shoot
           </h2>
           <p className="text-[#6B6760] text-sm sm:text-base font-light max-w-2xl">
-            Select your project parameters to generate a custom production brief and instant direct inquiry to Nolan.
+            Select your shoot parameters to generate a tailored production brief and send an instant inquiry directly to Nolan.
           </p>
         </div>
 
@@ -104,7 +106,7 @@ ${clientName || 'Prospective Client'}`;
             {/* Step 1: Project Type */}
             <div className="space-y-3">
               <label className="text-xs font-mono uppercase tracking-wider text-[#121211] font-semibold flex items-center justify-between">
-                <span>01. Select Project Type</span>
+                <span>01. Project Type</span>
                 <span className="text-[#8B877E] text-[10px]">Step 1 of 3</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -183,16 +185,29 @@ ${clientName || 'Prospective Client'}`;
             </div>
 
             {/* Additional Info Inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="space-y-1.5">
                 <label className="text-xs font-mono uppercase tracking-wider text-[#6B6760]">
-                  Your Name / Organization
+                  Your Name / Team
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Dallas Track Club / Marcus Smith"
+                  placeholder="e.g. Dallas Track / Coach Smith"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono uppercase tracking-wider text-[#6B6760]">
+                  Sport / Discipline
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Track & Field, Baseball, etc."
+                  value={sport}
+                  onChange={(e) => setSport(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
                 />
               </div>
@@ -203,7 +218,7 @@ ${clientName || 'Prospective Client'}`;
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Austin, TX / Remote"
+                  placeholder="e.g. DFW, TX / Austin / Travel"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
@@ -214,11 +229,11 @@ ${clientName || 'Prospective Client'}`;
             {/* Notes textarea */}
             <div className="space-y-1.5">
               <label className="text-xs font-mono uppercase tracking-wider text-[#6B6760]">
-                Additional Shoot Details or Specific Requests (Optional)
+                Shoot Details, Event Dates or Specific Requirements
               </label>
               <textarea
                 rows={3}
-                placeholder="Share any specific dates, target athlete events, or creative vision..."
+                placeholder="Share any upcoming competition dates, athlete events, or creative goals..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211] resize-none"
@@ -246,6 +261,10 @@ ${clientName || 'Prospective Client'}`;
                   <span className="text-[#FAF8F5] font-semibold text-right">{selectedProject}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">SPORT:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">{sport || 'All Sports'}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
                   <span className="text-[#D4A359]">FORMAT:</span>
                   <span className="text-[#D4A359] font-semibold text-right">{selectedFormat}</span>
                 </div>
@@ -259,7 +278,7 @@ ${clientName || 'Prospective Client'}`;
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#222120]">
                   <span className="text-[#8B877E]">SPEC:</span>
-                  <span className="text-[#FAF8F5] font-semibold text-right">4K 120fps &bull; Sound FX &bull; Color Grade</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">4K 120fps &bull; Sound Design &bull; Color</span>
                 </div>
               </div>
 

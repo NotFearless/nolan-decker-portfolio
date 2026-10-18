@@ -6,39 +6,39 @@ import { Film, Sliders, Video, Volume2 } from 'lucide-react';
 export default function ToolkitSection() {
   const categories = [
     {
-      title: "Editing & Post-Production",
+      title: "Editing & Sports Pacing",
       icon: <Film className="w-5 h-5 text-[#121211]" />,
       items: [
-        { name: "Adobe Premiere Pro", desc: "Long-form docuseries, timeline organization, multi-cam sports sync" },
-        { name: "CapCut Pro", desc: "High-speed mobile sequencing, viral audio sync, kinetic transitions" },
-        { name: "Adobe After Effects", desc: "Kinetic typography, motion graphics, clean tracking and visual accents" },
+        { name: "Adobe Premiere Pro", desc: "Full docuseries edits, multi-cam sports timeline sync, speed ramping, and match cuts" },
+        { name: "CapCut Pro", desc: "Fast-turnaround mobile delivery, viral sports pacing, sound syncing, and dynamic text" },
+        { name: "Adobe After Effects", desc: "Kinetic sports typography, motion tracking, stat overlays, and visual effects" },
       ],
     },
     {
-      title: "Color & Visual Polish",
+      title: "Color & Visual Finishing",
       icon: <Sliders className="w-5 h-5 text-[#121211]" />,
       items: [
-        { name: "Adobe Lightroom", desc: "Thumbnail grading, hero stills, contrast balance, and skin tone curves" },
-        { name: "Adobe Photoshop", desc: "High-CTR YouTube thumbnails, social covers, and graphic assets" },
-        { name: "Custom LUT Pipeline", desc: "Consistent rich tones designed for athletic outdoor track lighting" },
+        { name: "Adobe Lightroom", desc: "High-contrast athletic stills, thumbnail color balancing, and skin tone grading" },
+        { name: "Adobe Photoshop", desc: "Sports graphic packages, recruitment posters, YouTube covers, and athlete thumbnails" },
+        { name: "Custom Sports LUTs", desc: "Engineered for challenging outdoor sunlight, stadium lights, and indoor gym venues" },
       ],
     },
     {
-      title: "Camera & Field Production",
+      title: "Camera & Field Operation",
       icon: <Video className="w-5 h-5 text-[#121211]" />,
       items: [
-        { name: "4K 120fps High-Speed Capture", desc: "Ultra slow-motion breakdown for hurdles, high jump, and pole vault" },
-        { name: "Gimbal & Dynamic Tracking", desc: "Fluid athlete tracking down the runway and sprint lanes" },
-        { name: "Low-Angle & Trackside Rigging", desc: "Dramatic perspectives emphasizing verticality and physical power" },
+        { name: "4K 120fps High-Speed Capture", desc: "Silky smooth slow-motion action tracking for sprints, pitches, swings, and jumps" },
+        { name: "Dynamic Gimbal Tracking", desc: "Low-angle tracking and high-speed motion following athletes across the field" },
+        { name: "Game Day & Practice Rigging", desc: "Lightweight, agile camera setups built to move rapidly with the flow of competition" },
       ],
     },
     {
-      title: "Sound Design & Retention",
+      title: "Sound FX & Sports Audio",
       icon: <Volume2 className="w-5 h-5 text-[#121211]" />,
       items: [
-        { name: "Athletic Sound FX Design", desc: "Sub-bass impacts, bar rattles, breath, and spike clicks layered with beat drops" },
-        { name: "Algorithmic Retention Tuning", desc: "Pacing engineered around the critical 3-second hook and zero dead-time" },
-        { name: "Platform Distribution", desc: "Native metadata, aspect ratio optimization, and upload timing" },
+        { name: "Impact Sound Design", desc: "Bat cracks, turf cleat cuts, crossbar rattles, and heavy sub-bass athletic drops" },
+        { name: "Audio Dynamics & Beat Sync", desc: "Edits timed to the rhythm of movement and bass lines to build intensity" },
+        { name: "Multi-Platform Delivery", desc: "Native formats for team channels, athlete recruitment profiles, and social feeds" },
       ],
     },
   ];
@@ -54,10 +54,10 @@ export default function ToolkitSection() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#121211] tracking-tight">
-            Software, Hardware & Craft
+            Gear, Software & Craft
           </h2>
           <p className="text-[#6B6760] text-sm sm:text-base font-light max-w-2xl">
-            A comprehensive look at the tools, software, and production techniques powering every frame.
+            The equipment, editing suites, and sports videography craft powering every shoot.
           </p>
         </div>
 

@@ -22,37 +22,36 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nolan Decker | Sports Videographer & Content Creator",
+  title: "Nolan Decker | Sports Videographer",
   description:
-    "Official videographer for Goon Squad Professional Combined Event Track & Field Team. Specializing in high-octane sports cinematography, 120fps slow-motion capture, and high-retention short-form video storytelling.",
+    "Sports videographer specializing in high-speed 4K 120fps athletic cinematography, game day highlights, and athlete storytelling. Official videographer for Goon Squad Professional Combined Event Track & Field Team.",
   keywords: [
     "Nolan Decker",
     "Sports Videographer",
-    "Goon Squad",
+    "Texas Sports Videographer",
+    "DFW Sports Videographer",
     "Track and Field Videographer",
+    "Baseball Videographer",
+    "Athlete Highlights",
+    "Goon Squad",
     "Chris Huffins",
-    "Content Creator",
-    "Video Editor",
-    "Texas Videographer",
-    "Dallas Videographer",
-    "TikTok Editor",
-    "Sports Edits",
+    "4K 120fps Sports",
   ],
   authors: [{ name: "Nolan Decker" }],
   creator: "Nolan Decker",
   openGraph: {
-    title: "Nolan Decker | Sports Videographer & Content Creator",
+    title: "Nolan Decker | Sports Videographer",
     description:
-      "Capturing elite athletic motion, 120fps slow-mo, and high-retention video stories for Goon Squad and professional athletes.",
+      "High-speed sports videography capturing explosive athletic performance across all sports. Official videographer for Goon Squad Track & Field.",
     type: "website",
     locale: "en_US",
-    siteName: "Nolan Decker Portfolio",
+    siteName: "Nolan Decker | Sports Videographer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nolan Decker | Sports Videographer & Content Creator",
+    title: "Nolan Decker | Sports Videographer",
     description:
-      "Official videographer for Goon Squad Professional Track & Field Team. 4K high-speed capture, short-form editing, and athlete storytelling.",
+      "Capturing athletic speed, power, and competition in 4K 120fps. Official videographer for Goon Squad Track & Field.",
   },
 };
 
