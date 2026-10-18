@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import WorkSection from '../components/WorkSection';
+import BaseballSection from '../components/BaseballSection';
 import SocialHub from '../components/SocialHub';
 import ResumeExperience from '../components/ResumeExperience';
 import AboutSection from '../components/AboutSection';
@@ -27,7 +28,10 @@ export default function Home() {
       {/* Selected Video Works (Filterable 9:16 and 16:9) */}
       <WorkSection onSelectVideo={(video) => setActiveVideo(video)} />
 
-      {/* Social Hub: YouTube (@GoonSquadElites), TikTok (@gselites), Instagram (@pitchingwithw1tt) */}
+      {/* Dedicated Baseball & Pitching With Witt Section */}
+      <BaseballSection />
+
+      {/* Client Channels Hub: YouTube, TikTok, Instagram */}
       <SocialHub onPlayVideo={(video) => setActiveVideo(video)} />
 
       {/* Resume Dossier: Goon Squad & Independent Content Creator */}

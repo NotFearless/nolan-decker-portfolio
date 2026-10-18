@@ -92,6 +92,9 @@ export default function Navbar() {
             <a href="#work" className="hover:text-[#121211] transition-colors py-1">
               Selected Work
             </a>
+            <a href="#baseball" className="hover:text-[#121211] transition-colors py-1">
+              Baseball
+            </a>
             <a href="#clients" className="hover:text-[#121211] transition-colors py-1">
               Client Channels
             </a>
@@ -160,6 +163,13 @@ export default function Navbar() {
                 className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
               >
                 Selected Work
+              </a>
+              <a
+                href="#baseball"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
+              >
+                Baseball & Pitching
               </a>
               <a
                 href="#clients"
