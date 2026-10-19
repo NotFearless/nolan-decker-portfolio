@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -63,9 +65,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans bg-[#FAF8F5] text-[#121211] antialiased selection:bg-[#121211] selection:text-[#FAF8F5]`}
+        className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans bg-[#FAF8F5] text-[#121211] antialiased selection:bg-[#121211] selection:text-[#FAF8F5] flex flex-col min-h-screen`}
       >
-        {children}
+        <Navbar />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

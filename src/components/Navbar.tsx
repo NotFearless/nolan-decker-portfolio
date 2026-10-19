@@ -1,22 +1,18 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Mail, Check, Menu, X, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [timecode, setTimecode] = useState('00:00:00:00');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-    window.addEventListener('scroll', handleScroll);
-
-    // Realistic timecode clock based on current time + frames
     const interval = setInterval(() => {
       const now = new Date();
       const hh = String(now.getHours()).padStart(2, '0');
@@ -26,25 +22,31 @@ export default function Navbar() {
       setTimecode(`${hh}:${mm}:${ss}:${ff}`);
     }, 42);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
+    setTimeout(() => setCopied(false), 2000);
   };
+
+  const navLinks = [
+    { label: 'Overview', href: '/' },
+    { label: 'Selected Work', href: '/work' },
+    { label: 'Baseball', href: '/baseball' },
+    { label: 'Clients & Channels', href: '/clients' },
+    { label: 'Experience & About', href: '/experience' },
+    { label: 'Book Shoot', href: '/contact' },
+  ];
 
   return (
     <>
       {/* Top Studio HUD status bar */}
       <div className="bg-[#121211] text-[#E5E1D7] text-[11px] font-mono py-1.5 px-4 sm:px-8 border-b border-[#282725] flex justify-between items-center tracking-wider">
         <div className="flex items-center space-x-3">
-          <span className="flex items-center text-[#EE3B2B] font-semibold animate-pulse">
-            <span className="w-2 h-2 rounded-full bg-[#EE3B2B] inline-block mr-1.5"></span>
+          <span className="flex items-center text-[#EE3B2B] font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#EE3B2B] inline-block mr-1.5 animate-pulse"></span>
             REC
           </span>
           <span className="text-[#8B877E] hidden md:inline">|</span>
@@ -64,65 +66,54 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation */}
-      <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#FAF8F5]/90 backdrop-blur-md shadow-sm border-b border-[#E7E4DC]'
-            : 'bg-[#FAF8F5] border-b border-[#EAE7DF]'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
-          {/* Logo / Name */}
-          <a href="#" className="group flex items-center space-x-2.5">
-            <div className="w-8 h-8 rounded bg-[#121211] text-[#FAF8F5] flex items-center justify-center font-mono font-bold text-xs tracking-tighter group-hover:scale-105 transition-transform">
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#EAE7DF] transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          {/* Logo / Brand Name */}
+          <Link href="/" className="group flex items-center space-x-3">
+            <div className="w-8 h-8 rounded-lg bg-[#121211] text-[#FAF8F5] flex items-center justify-center font-mono font-bold text-xs tracking-tighter group-hover:scale-105 transition-transform">
               ND
             </div>
             <div className="flex flex-col">
               <span className="font-serif font-bold text-lg tracking-tight text-[#121211] leading-none">
                 Nolan Decker
               </span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#6B6760] mt-0.5">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#7C776E] mt-0.5">
                 Sports Videographer
               </span>
             </div>
-          </a>
+          </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium text-[#4A4742]">
-            <a href="#work" className="hover:text-[#121211] transition-colors py-1">
-              Selected Work
-            </a>
-            <a href="#baseball" className="hover:text-[#121211] transition-colors py-1">
-              Baseball
-            </a>
-            <a href="#clients" className="hover:text-[#121211] transition-colors py-1">
-              Client Channels
-            </a>
-            <a href="#experience" className="hover:text-[#121211] transition-colors py-1">
-              Experience
-            </a>
-            <a href="#about" className="hover:text-[#121211] transition-colors py-1">
-              About
-            </a>
-            <a href="#toolkit" className="hover:text-[#121211] transition-colors py-1">
-              Gear & Software
-            </a>
-            <a href="#inquiry" className="hover:text-[#121211] transition-colors py-1">
-              Book Shoot
-            </a>
+          {/* Desktop Nav Links Tabs */}
+          <nav className="hidden lg:flex items-center p-1 bg-[#F2EFE9] rounded-xl border border-[#E2DDD3] space-x-1">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                    isActive
+                      ? 'bg-[#121211] text-[#FAF8F5] shadow-xs'
+                      : 'text-[#68645E] hover:text-[#121211] hover:bg-black/5'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden sm:flex items-center space-x-3">
             <button
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-mono border border-[#DCD7C9] bg-white text-[#2B2926] hover:bg-[#F2EFE9] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono border border-[#DCD7C9] bg-white text-[#2B2926] hover:bg-[#F2EFE9] transition-all shadow-xs"
               title="Click to copy email address"
             >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-700 font-semibold">Email Copied!</span>
+                  <span className="text-emerald-700 font-semibold">Email Copied</span>
                 </>
               ) : (
                 <>
@@ -132,20 +123,20 @@ export default function Navbar() {
               )}
             </button>
 
-            <a
-              href="#inquiry"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#121211] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#2B2926] transition-colors shadow-sm"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#121211] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider hover:bg-[#2B2926] transition-colors shadow-sm"
             >
               <span>Book Shoot</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center space-x-2">
+          <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded border border-[#E7E4DC] text-[#121211] bg-white hover:bg-[#F2EFE9]"
+              className="p-2 rounded-lg border border-[#E7E4DC] text-[#121211] bg-white hover:bg-[#F2EFE9]"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -156,74 +147,42 @@ export default function Navbar() {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-[#EAE7DF] bg-[#FAF8F5] px-4 py-6 space-y-4 shadow-xl">
-            <div className="flex flex-col space-y-3 font-medium text-base text-[#2B2926]">
-              <a
-                href="#work"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Selected Work
-              </a>
-              <a
-                href="#baseball"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Baseball & Pitching
-              </a>
-              <a
-                href="#clients"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Client Channels & Work
-              </a>
-              <a
-                href="#experience"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Experience (Goon Squad)
-              </a>
-              <a
-                href="#about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                About Nolan
-              </a>
-              <a
-                href="#toolkit"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Gear & Software
-              </a>
-              <a
-                href="#inquiry"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 px-3 rounded hover:bg-[#F2EFE9]"
-              >
-                Book a Shoot
-              </a>
+            <div className="flex flex-col space-y-2 font-medium text-sm text-[#2B2926]">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`py-2 px-3 rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-[#121211] text-[#FAF8F5] font-semibold'
+                        : 'hover:bg-[#F2EFE9]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="pt-4 border-t border-[#E7E4DC] flex flex-col gap-2">
               <button
                 onClick={handleCopyEmail}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded border border-[#DCD7C9] bg-white text-xs font-mono font-medium text-[#2B2926]"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-[#DCD7C9] bg-white text-xs font-mono font-medium text-[#2B2926]"
               >
                 {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Mail className="w-4 h-4 text-[#6B6760]" />}
                 {copied ? "Email Copied to Clipboard!" : PERSONAL_INFO.email}
               </button>
-              <a
-                href="#inquiry"
+              <Link
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-1.5 py-3 rounded bg-[#121211] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider text-center"
+                className="w-full flex items-center justify-center gap-1.5 py-3 rounded-lg bg-[#121211] text-[#FAF8F5] text-xs font-semibold uppercase tracking-wider text-center"
               >
                 <span>Initiate Booking Inquiry</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </a>
+              </Link>
             </div>
           </div>
         )}

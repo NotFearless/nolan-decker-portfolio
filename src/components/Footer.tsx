@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import { YouTubeIcon, TikTokIcon, InstagramIcon } from './SocialIcons';
 import { PERSONAL_INFO } from '../data/portfolioData';
@@ -16,14 +17,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#282725]">
           {/* Brand & Mission */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded bg-[#FAF8F5] text-[#121211] flex items-center justify-center font-mono font-bold text-xs">
+            <Link href="/" className="flex items-center space-x-2.5">
+              <div className="w-8 h-8 rounded-lg bg-[#FAF8F5] text-[#121211] flex items-center justify-center font-mono font-bold text-xs">
                 ND
               </div>
               <span className="font-serif font-bold text-xl tracking-tight text-[#FAF8F5]">
                 Nolan Decker
               </span>
-            </div>
+            </Link>
 
             <p className="text-sm text-[#9C978E] font-light leading-relaxed max-w-sm">
               Sports videographer dedicated to capturing athletic performance, game day energy, and athlete journeys across all sports.
@@ -41,34 +42,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-[#C6C2B8] font-light">
               <li>
-                <a href="#work" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
+                  Overview
+                </Link>
+              </li>
+              <li>
+                <Link href="/work" className="hover:text-white transition-colors">
                   Selected Work
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#clients" className="hover:text-white transition-colors">
+                <Link href="/baseball" className="hover:text-white transition-colors">
+                  Baseball
+                </Link>
+              </li>
+              <li>
+                <Link href="/clients" className="hover:text-white transition-colors">
                   Client Channels
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#experience" className="hover:text-white transition-colors">
-                  Experience (Goon Squad)
-                </a>
+                <Link href="/experience" className="hover:text-white transition-colors">
+                  Experience & About
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About Nolan
-                </a>
-              </li>
-              <li>
-                <a href="#toolkit" className="hover:text-white transition-colors">
-                  Gear & Software
-                </a>
-              </li>
-              <li>
-                <a href="#inquiry" className="hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors">
                   Book a Shoot
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

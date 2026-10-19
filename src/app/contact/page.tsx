@@ -1,0 +1,354 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Mail, Check, Copy, ArrowUpRight } from 'lucide-react';
+import confetti from 'canvas-confetti';
+import { PERSONAL_INFO } from '../../data/portfolioData';
+
+export default function ContactPage() {
+  const [projectType, setProjectType] = useState<string>('game-coverage');
+  const [format, setFormat] = useState<string>('hybrid');
+  const [turnaround, setTurnaround] = useState<string>('priority');
+  const [sport, setSport] = useState<string>('Track & Field / Baseball');
+  const [location, setLocation] = useState<string>('DFW, Texas');
+  const [clientName, setClientName] = useState<string>('');
+  const [notes, setNotes] = useState<string>('');
+  const [copied, setCopied] = useState<boolean>(false);
+
+  const projectTypes = [
+    { id: 'game-coverage', name: 'Game Day / Meet / Event Coverage', desc: 'On-field live action capture, 120fps slow-motion highlights' },
+    { id: 'athlete-reel', name: 'Athlete Highlight & Recruitment Reel', desc: 'High-impact personal highlight reel for scouts, coaches & social' },
+    { id: 'team-season', name: 'Team Season & Training Camp Media', desc: 'Practices, scrimmages, behind-the-scenes vlogs & team hype videos' },
+    { id: 'facility-brand', name: 'Sports Facility & Athletic Brand Media', desc: 'Training facility showcases, trainer breakdowns & commercial promos' },
+  ];
+
+  const formats = [
+    { id: 'vertical', name: '9:16 Vertical Reels', desc: 'Engineered for Instagram Reels, TikTok & Shorts' },
+    { id: 'cinema', name: '16:9 4K Cinema Master', desc: 'Docuseries, team YouTube channel, landscape' },
+    { id: 'hybrid', name: 'Hybrid Package (Both)', desc: 'Full length cinematic edit + cutdown vertical reels' },
+  ];
+
+  const turnarounds = [
+    { id: 'same-day', name: 'Same-Day Flash (< 24h)', desc: 'Immediate drop while the game or meet is trending' },
+    { id: 'priority', name: 'Priority (48 – 72 Hours)', desc: 'Fast turnaround with sound design & color grade' },
+    { id: 'standard', name: 'Standard (5 – 7 Days)', desc: 'Full deep-dive editing and sound design' },
+  ];
+
+  const selectedProject = projectTypes.find((p) => p.id === projectType)?.name;
+  const selectedFormat = formats.find((f) => f.id === format)?.name;
+  const selectedTurnaround = turnarounds.find((t) => t.id === turnaround)?.name;
+
+  const generatedEmailSubject = `Sports Videography Booking: ${selectedProject} (${clientName || 'New Client'})`;
+  const generatedEmailBody = `Hi Nolan,
+
+I would like to inquire about booking your sports videography services.
+
+Project Scope:
+- Project Type: ${selectedProject}
+- Sport / Discipline: ${sport || 'Sports'}
+- Deliverable Format: ${selectedFormat}
+- Desired Turnaround: ${selectedTurnaround}
+- Location / Venue: ${location || 'DFW, Texas'}
+
+Additional Notes:
+${notes || 'We would love to discuss dates and get your availability for an upcoming shoot.'}
+
+Best regards,
+${clientName || 'Prospective Client'}`;
+
+  const mailtoLink = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
+    generatedEmailSubject
+  )}&body=${encodeURIComponent(generatedEmailBody)}`;
+
+  const handleCopyDraft = () => {
+    navigator.clipboard.writeText(generatedEmailBody);
+    setCopied(true);
+    confetti({
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ['#EE3B2B', '#D4A359', '#121211', '#4ADE80'],
+    });
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleSendClick = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
+
+  return (
+    <div className="bg-[#FAF8F5] py-14 sm:py-20 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-14 pb-8 border-b border-[#EAE7DF] space-y-3">
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#7C776E] font-semibold block">
+            Booking & Contact
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#121211] tracking-tight">
+            Book a Sports Shoot
+          </h1>
+          <p className="text-[#524E48] text-base sm:text-lg max-w-2xl font-light leading-relaxed">
+            Select your shoot parameters below to generate an immediate production brief, or contact Nolan directly via email and phone.
+          </p>
+        </div>
+
+        {/* Quick Contact Badges */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
+          <div className="p-6 rounded-2xl bg-white border border-[#DCD7C9] space-y-1.5 shadow-xs">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#7C776E] block">
+              Direct Email
+            </span>
+            <a href={`mailto:${PERSONAL_INFO.email}`} className="text-sm font-semibold text-[#121211] hover:text-[#EE3B2B] transition-colors block truncate">
+              {PERSONAL_INFO.email}
+            </a>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-white border border-[#DCD7C9] space-y-1.5 shadow-xs">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#7C776E] block">
+              Direct Phone
+            </span>
+            <a href={`tel:${PERSONAL_INFO.phone}`} className="text-sm font-semibold text-[#121211] hover:text-[#EE3B2B] transition-colors block">
+              {PERSONAL_INFO.phone}
+            </a>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-white border border-[#DCD7C9] space-y-1.5 shadow-xs">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#7C776E] block">
+              Location & Travel
+            </span>
+            <span className="text-sm font-semibold text-[#121211] block">
+              {PERSONAL_INFO.location} &bull; Worldwide Travel
+            </span>
+          </div>
+        </div>
+
+        {/* Shoot Configurator Builder */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* Controls Column */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-3">
+              <label className="text-xs font-mono uppercase tracking-wider text-[#121211] font-semibold flex items-center justify-between">
+                <span>01. Project Type</span>
+                <span className="text-[#8B877E] text-[10px]">Step 1 of 3</span>
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {projectTypes.map((pt) => (
+                  <button
+                    key={pt.id}
+                    type="button"
+                    onClick={() => setProjectType(pt.id)}
+                    className={`text-left p-4 rounded-xl border transition-all ${
+                      projectType === pt.id
+                        ? 'bg-[#121211] text-[#FAF8F5] border-[#121211] shadow-md'
+                        : 'bg-white text-[#2B2926] border-[#DCD7C9] hover:bg-[#F2EFE9]'
+                    }`}
+                  >
+                    <p className="font-semibold text-sm leading-snug">{pt.name}</p>
+                    <p className={`text-xs mt-1 font-light ${projectType === pt.id ? 'text-[#C6C2B8]' : 'text-[#68645E]'}`}>
+                      {pt.desc}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <label className="text-xs font-mono uppercase tracking-wider text-[#121211] font-semibold flex items-center justify-between">
+                <span>02. Deliverable Format</span>
+                <span className="text-[#8B877E] text-[10px]">Step 2 of 3</span>
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {formats.map((fmt) => (
+                  <button
+                    key={fmt.id}
+                    type="button"
+                    onClick={() => setFormat(fmt.id)}
+                    className={`text-left p-3.5 rounded-xl border transition-all ${
+                      format === fmt.id
+                        ? 'bg-[#121211] text-[#FAF8F5] border-[#121211] shadow-md'
+                        : 'bg-white text-[#2B2926] border-[#DCD7C9] hover:bg-[#F2EFE9]'
+                    }`}
+                  >
+                    <p className="font-semibold text-xs leading-snug">{fmt.name}</p>
+                    <p className={`text-[11px] mt-1 font-light line-clamp-2 ${format === fmt.id ? 'text-[#C6C2B8]' : 'text-[#68645E]'}`}>
+                      {fmt.desc}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <label className="text-xs font-mono uppercase tracking-wider text-[#121211] font-semibold flex items-center justify-between">
+                <span>03. Desired Turnaround</span>
+                <span className="text-[#8B877E] text-[10px]">Step 3 of 3</span>
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {turnarounds.map((t) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => setTurnaround(t.id)}
+                    className={`text-left p-3.5 rounded-xl border transition-all ${
+                      turnaround === t.id
+                        ? 'bg-[#121211] text-[#FAF8F5] border-[#121211] shadow-md'
+                        : 'bg-white text-[#2B2926] border-[#DCD7C9] hover:bg-[#F2EFE9]'
+                    }`}
+                  >
+                    <p className="font-semibold text-xs leading-snug">{t.name}</p>
+                    <p className={`text-[11px] mt-1 font-light line-clamp-2 ${turnaround === t.id ? 'text-[#C6C2B8]' : 'text-[#68645E]'}`}>
+                      {t.desc}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono uppercase tracking-wider text-[#68645E]">
+                  Your Name / Team
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Coach Davis"
+                  value={clientName}
+                  onChange={(e) => setClientName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono uppercase tracking-wider text-[#68645E]">
+                  Sport / Discipline
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Track & Field, Baseball"
+                  value={sport}
+                  onChange={(e) => setSport(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-mono uppercase tracking-wider text-[#68645E]">
+                  Location / Venue
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. DFW, TX / Travel"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211]"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-mono uppercase tracking-wider text-[#68645E]">
+                Shoot Details, Event Dates or Specific Requirements
+              </label>
+              <textarea
+                rows={3}
+                placeholder="Share any upcoming competition dates, athlete events, or creative goals..."
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#DCD7C9] text-sm text-[#121211] focus:outline-hidden focus:border-[#121211] resize-none"
+              />
+            </div>
+          </div>
+
+          {/* Realtime Output Summary Card */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#121211] text-[#FAF8F5] rounded-3xl p-6 sm:p-8 border border-[#282725] shadow-2xl space-y-6 sticky top-28">
+              <div className="flex items-center justify-between pb-4 border-b border-[#282725]">
+                <div className="flex items-center space-x-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#4ADE80] animate-pulse"></span>
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#D4A359]">
+                    Configured Production Brief
+                  </span>
+                </div>
+                <span className="text-[11px] font-mono text-[#8B877E]">DFW & Travel</span>
+              </div>
+
+              <div className="space-y-3 text-xs font-mono">
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">PROJECT:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">{selectedProject}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">SPORT:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">{sport || 'All Sports'}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#D4A359]">FORMAT:</span>
+                  <span className="text-[#D4A359] font-semibold text-right">{selectedFormat}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">DELIVERY:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">{selectedTurnaround}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">LOCATION:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">{location || 'DFW, TX'}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-[#222120]">
+                  <span className="text-[#8B877E]">SPEC:</span>
+                  <span className="text-[#FAF8F5] font-semibold text-right">4K 120fps &bull; Sound Design &bull; Color</span>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <span className="text-[10px] font-mono uppercase text-[#8B877E] tracking-wider block">
+                  Generated Message Draft
+                </span>
+                <div className="p-3.5 rounded-xl bg-[#1C1B19] border border-[#2E2C28] text-xs font-mono text-[#C6C2B8] whitespace-pre-wrap leading-relaxed max-h-40 overflow-y-auto">
+                  {generatedEmailBody}
+                </div>
+              </div>
+
+              <div className="space-y-2.5 pt-2">
+                <a
+                  href={mailtoLink}
+                  onClick={handleSendClick}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#FAF8F5] hover:bg-white text-[#121211] font-semibold text-xs uppercase tracking-wider transition-all shadow-md"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Send Direct Email to Nolan</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleCopyDraft}
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-[#3E3C38] bg-[#1C1B19] hover:bg-[#282725] text-xs font-mono text-[#FAF8F5] transition-all"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-emerald-400 font-semibold">Brief Copied to Clipboard!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-[#8B877E]" />
+                      <span>Copy Inquiry Text</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="pt-2 text-center text-xs text-[#8B877E] font-mono">
+                Direct: {PERSONAL_INFO.email} &bull; {PERSONAL_INFO.phone}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
