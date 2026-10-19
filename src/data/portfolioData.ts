@@ -31,10 +31,8 @@ export const PERSONAL_INFO = {
   location: "Aubrey / DFW, Texas",
   email: "nolan.decker01@gmail.com",
   phone: "(940) 594-2080",
-  bioHeadline: "High-octane sports videography capturing explosive athletic performance.",
-  bio: `I am a sports videographer dedicated to capturing the intensity, mechanics, and raw emotion of athletic competition. 
-
-From filming trackside for the Goon Squad professional track & field team alongside Olympian Chris Huffins to producing high-impact training and pitching breakdown media for Pitching With Witt, I deliver cinematic, fast-paced sports visuals for teams, athletes, and athletic brands. Whether it's 120fps high-speed game action, athlete recruitment reels, training camp documentation, or platform-ready hype edits, every project is filmed with precision and edited to elevate the athlete.`,
+  bioHeadline: "I'm Nolan, 24 years old and working to capture you in the best and most explosive light.",
+  bio: `I'm Nolan, 24 years old and working to capture you in the best and most explosive light. Working with athletes far and wide, from track to baseball, I have you covered. Every detail in every light, let's bring the best out!`,
   clients: [
     {
       name: "Goon Squad Elites",

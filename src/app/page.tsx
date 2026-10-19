@@ -35,8 +35,11 @@ export default function HomePage() {
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-[#121211] leading-[1.08]">
                 Capturing <span className="italic font-normal">explosive</span> athletic motion.
               </h1>
-              <p className="text-lg sm:text-xl text-[#524E48] font-light leading-relaxed max-w-2xl">
-                I film sports with cinematic precision. From trackside championship meets with the Goon Squad to high-speed baseball pitching mechanics for Pitching With Witt, I deliver visuals that capture the speed, power, and biomechanics of elite athletes.
+              <p className="text-lg sm:text-2xl text-[#121211] font-medium leading-relaxed max-w-2xl">
+                I&apos;m Nolan, 24 years old and working to capture you in the best and most explosive light.
+              </p>
+              <p className="text-base sm:text-lg text-[#524E48] font-light leading-relaxed max-w-2xl">
+                Working with athletes far and wide, from track to baseball, I have you covered. Every detail in every light, let&apos;s bring the best out!
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
